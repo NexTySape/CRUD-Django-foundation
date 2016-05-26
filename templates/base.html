@@ -1,0 +1,149 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crud Django.</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/foundation.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/custom.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}foundation-icons/foundation-icons.css" />
+    <script src="{{STATIC_URL}}js/vendor/modernizr.js"></script>
+    <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/flaticon.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <div id="top"></div>
+    <div class="contain-to-grid sticky">
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="/">CRUD Django</a>
+                    </h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon">
+                    <a href="#">
+                        <span>Menu</span>
+                    </a>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul id="nav" class="right">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href={{ request.get_host }}/clientes/listado>Clientes</a></li>
+                    <li><a href={{ request.get_host }}/celulares/listado>Celulares</a></li>
+                    <li><a href={{ request.get_host }}/compras/listado>Compras</a></li>
+                </ul>
+
+            </section>
+        </nav>
+    </div>
+    <section class="jumbo">
+        <div class="row">
+            <div class="small-2 large-12 columns">
+                <h1>CRUD Django + Foundation</h1>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                {% block contenido %} {% endblock %}
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <div class="row">
+            <div class="large-12 columns">
+                <h2>Universidad Cooperativa de Colombia</h2>
+                <ul class="medium-block-grid-1">
+                    <li>
+                        <a href="http://www.ucc.edu.co/Paginas/inicio.aspx"><img class="th" src="{{STATIC_URL}}img/logoUCC.png" alt="image1" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div id="contact">
+            <div class="row">
+                <div class="large-12 columns">
+
+                    <div>
+                        <ul class="small-block-grid-1 large-block-grid-3">
+                            <li>
+                                <h3>¿Que es un Crud?</h3>
+                                <p>CRUD, son las iniciales de Create, Read, Update, Delete, es el sistema básico de entrada, lectura, modificacion y eliminacion de datos en una base de datos SQL</p>
+                            </li>
+                            <li>
+                                <h3>¿Quienes somos?</h3>
+                                <p>Somos Estudiantes de ingeniería de sistemas de la universidad cooperativa de colombia, quinto semestre, este proyecto es para la asignatura Diseño de Base de Datos</p>
+                            </li>
+                            <li>
+                                <h3>Info de Contacto</h3>
+                                <ul>
+                                    <li>
+                                        <i class="fi-telephone"></i> 311 4383784 - 300 2323909
+                                    </li>
+                                    <li>
+                                        <i class="fi-home"></i> Montería<br>Córdoba</li>
+                                    <li>
+                                        <i class="fi-mail"></i> nextysapbe@gmail.com
+                                    </li>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="large-4 pull-1 columns text-center">
+                        <p>&copy; Copyright Nestor Morales, Jorge Lopez.</p>
+                    </div>
+                    <div class="large-7 push-2 columns text-center">
+                        <!-- Please Leave this link out of respect for the designer -->
+                        <p>Designed By:
+                            <a href="http://epickwebdesign.com">EPick Web Design</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{STATIC_URL}}js/vendor/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <script>
+        $(function() {
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

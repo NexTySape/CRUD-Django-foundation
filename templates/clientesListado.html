@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<br>
+  <div class="large-12 columns">
+    <h4><a href="/">Inicio</a> /Lista de Clientes</h4>
+    <table>
+      <thead>
+        <tr>
+          <th width="235">DNI cliente</th>
+          <th width="235">Nombre</th>
+          <th width="235">Telefono de contacto</th>
+          <th width="235">Direccion</th>
+        </tr>
+      </thead>
+      <!-- IMPORTANT, class="list" have to be at tbody -->
+      <tbody class="list">
+        {% for cliente in Clientes %}
+        <tr>
+          <td>{{cliente.dni}}</td>
+          <td>{{cliente.c_nomb}}</td>
+          <td>{{cliente.c_telf}}</td>
+          <td>{{cliente.c_dir}}</td>
+          <td> <button data-dropdown="opcs" aria-controls="drop" class="alert round button dropdown">Opciones</button><br>
+          <ul id="opcs" data-dropdown-content class="f-dropdown" aria-hidden="true">
+            <li><a href={{ request.get_host }}/cliente/{{cliente.dni}}>Editar</a></li>
+            <li><a href={{ request.get_host }}/cliente_e/{{cliente.dni}}>Eliminar</a></li>
+          </ul>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class=" small-4 large-8 columns">
+    <a href={{ request.get_host }}/clientes/nuevo><h6 class="button large success" style="background-color:#7bac0f">Agregar Cliente</h6></a>
+  </div>
+{% endblock %}

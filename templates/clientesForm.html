@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+	<div class="large-12 columns">
+  	<h4><a href="/">Inicio</a> /Nuevo Cliente</h4>
+    <div class=" panel large-12 columns">
+      <form  enctype='multipart/form-data' action='' method='POST'>
+      	<div class="row">
+        	<p style="text-align:center; color:gray;"> <em> Datos generales</em></p>
+        	<div class="  large-12 columns">
+          	{% csrf_token %}
+            {{ form.non_field_errors }}
+						<label> DNI cliente:
+							{{ form.dni }}
+						</label>
+						{% if form.dni.errors %}
+							{% for error in form.dni.errors %}
+								<small class="error">
+									{{ error|escape }}
+								</small>
+							{% endfor %}
+						{% endif %}
+          </div>
+					<div class="large-12 columns">
+						<label > Nombre:
+            	{{ form.c_nomb }}
+            </label>
+            {% if form.c_nomb.errors %}
+            	{% for error in form.c_nomb.errors %}
+              	<small class="error">
+                	{{ error|escape }}
+                </small>
+              {% endfor %}
+            {% endif %}
+					</div>
+        </div>
+				<div class="row">
+					<div class="large-12 columns">
+	        	<label > Teléfono contacto:
+	          	{{ form.c_telf }}
+	          </label>
+	          {% if form.c_telf.errors %}
+	          	{% for error in form.c_telf.errors %}
+	            	<small class="error">
+	              	{{ error|escape }}
+	              </small>
+	            {% endfor %}
+	          {% endif %}
+	        </div>
+					<div class="large-12 columns">
+	        	<label > Dirección:
+	          	{{ form.c_dir }}
+	          </label>
+	          {% if form.c_dir.errors %}
+	          	{% for error in form.c_dir.errors %}
+	          		<small class="error">
+	              	{{ error|escape }}
+	              </small>
+	            {% endfor %}
+	          {% endif %}
+	        </div>
+				</div>
+				<br>
+    		<div class="large-12 columns">
+    			<input style="background-color:#7bac0f" class="button tiny " type='submit' value='Registrar Cliente'/>
+				</div>
+  		</form>
+		</div>
+	</div>
+
+{% endblock %}

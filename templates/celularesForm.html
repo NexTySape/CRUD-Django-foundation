@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<div class="large-12 columns">
+	<h4><a href="/">Inicio</a> /Nuevo Celular</h4>
+	<div class=" panel large-12 columns">
+		<form  enctype='multipart/form-data' action='' method='POST'>
+			<div class="row">
+				<p style="text-align:center; color:gray;"> <em> Datos generales</em></p>
+				<div class="  large-12 columns">
+					{% csrf_token %}
+					{{ form.non_field_errors }}
+					<label> Código Producto:
+						{{ form.idprod }}
+					</label>
+					{% if form.idprod.errors %}
+						{% for error in form.idprod.errors %}
+							<small class="error">
+								{{ error|escape }}
+							</small>
+						{% endfor %}
+					{% endif %}
+				</div>
+				<div class="large-12 columns">
+					<label > Modelo:
+						{{ form.ce_model }}
+					</label>
+					{% if form.ce_model.errors %}
+						{% for error in form.ce_model.errors %}
+							<small class="error">
+								{{ error|escape }}
+							</small>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<label > Marca:
+						{{ form.ce_marca }}
+					</label>
+					{% if form.ce_marca.errors %}
+						{% for error in form.ce_marca.errors %}
+							<small class="error">
+								{{ error|escape }}
+							</small>
+						{% endfor %}
+					{% endif %}
+				</div>
+				<div class="large-12 columns">
+					<label > Descripción:
+						{{ form.ce_desc }}
+					</label>
+					{% if form.ce_desc.errors %}
+						{% for error in form.ce_desc.errors %}
+							<small class="error">
+								{{ error|escape }}
+							</small>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			<br>
+			<div class="large-12 columns">
+				<input style="background-color:#7bac0f" class="button tiny " type='submit' value='Registrar Celular'/>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}
